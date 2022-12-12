@@ -1,6 +1,10 @@
 using System.Text.Json.Serialization;
+using Akvelon_Task_Manager.Configurations;
+using Akvelon_Task_Manager.Contracts;
 using Akvelon_Task_Manager.Converters;
 using Akvelon_Task_Manager.Data;
+using Akvelon_Task_Manager.Data.Managers;
+using Akvelon_Task_Manager.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +32,12 @@ builder.Services.AddCors(options => {
         .AllowAnyOrigin());
 });
 
+builder.Services.AddAutoMapper(typeof(MapperConfig));   // Adding automapper service to app using our defined MapperConfig
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IProjectsRepository, ProjectsRepository>();                   // Adding Generic, Project and Task Repository services
+builder.Services.AddScoped<ITasksRepository, TasksRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,5 +54,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MigrateDatabase();  // Executing our automated databse migration method before running
 
 app.Run();
