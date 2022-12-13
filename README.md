@@ -7,12 +7,12 @@ Firslty you need to clone this repository to your environment. And then you have
 ### On local machine
 For this you need sdk and runtime for dotnet6 to run it on your machine
 Run this command on terminal inside project's directory
-`dotnet run`
+```dotnet run```
 
 ### On docker container
 For this you need Docker installed on your machine
 To run docker container run this command inside project's directory
-`docker-compose up`
+```docker-compose up```
 
 ## Installation
 ## Usage/commmands
