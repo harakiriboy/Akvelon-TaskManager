@@ -41,7 +41,7 @@ The DAL consists of Models(schemas for Entities), Database Context class to mana
 9) There are some default Startup processes. Mine are UseCors(To use CORS Service we defined above) and MigrateDatabase(To performing Data Migrations to Db)<br>
 
 ## Stack 
-1) C# .Net
+1) C# .Net 6
 2) EFCore ORM 
 3) SqlServer
 4) Docker
