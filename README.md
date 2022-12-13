@@ -30,66 +30,13 @@ The Repository classes are core of my Business Logic Layer. They are injecting C
 The DAL consists of Models(schemas for Entities), Database Context class to managing Entities and it has 'Initializer' method for seeding the Database.<br>
 
 ## 'Program.cs' class Pipeline
-    using System.Text.Json.Serialization;
-    using Akvelon_Task_Manager.Configurations;
-    using Akvelon_Task_Manager.Contracts;
-    using Akvelon_Task_Manager.Converters;
-    using Akvelon_Task_Manager.Data;
-    using Akvelon_Task_Manager.Data.Managers;
-    using Akvelon_Task_Manager.Repository;
-    using Microsoft.EntityFrameworkCore;
-
-    var builder = WebApplication.CreateBuilder(args);
-
-    // Add services to the container.
-
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");  
-    builder.Services.AddDbContext<AkvelonTaskManagerDbContext>(options => {                 // Establishing connection to sql server via dbcontext service
-        options.UseSqlServer(connectionString);
-    });
-
-    builder.Services.AddControllers().AddJsonOptions(options => {
-        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());   // Adding json enum converter to properly work with them in swagger
-        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-        options.JsonSerializerOptions.Converters.Add(new DateTimeConverter());  // Adding custom datetime converter we created
-    });
-
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-
-    builder.Services.AddCors(options => {
-        options.AddPolicy("AllowAll", b => b.AllowAnyHeader()   // Allowing cors to freely establish connection with other servers
-            .AllowAnyMethod()                                    //  Also specifying policy options that will be available
-            .AllowAnyOrigin());
-    });
-
-    builder.Services.AddAutoMapper(typeof(MapperConfig));   // Adding automapper service to app using our defined MapperConfig
-
-    builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-    builder.Services.AddScoped<IProjectsRepository, ProjectsRepository>();                   // Adding Generic, Project and Task Repository services
-    builder.Services.AddScoped<ITasksRepository, TasksRepository>();
-
-    var app = builder.Build();
-
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseCors("AllowAll");
-
-    app.UseHttpsRedirection();
-
-    app.UseAuthorization();
-
-    app.MapControllers();
-
-    app.MigrateDatabase();  // Executing our automated databse migration method before running
-
-    app.Run();
-
-
+1) The file starts from builder variable declaration to build application
+2) Then I created 'connectionString' var to store in there my 'DbConextConnectionString' to link with SqlServer
+3) After adding Controller Service with options to use Converters(EnumToString and DateTimeToString)
+4) Adding Swagger services
+5) Adding CORS Service to establish connection with another Servers and data sharing
+6) Added AutoMapper Service to allow Mappings between Entities and DTOs
+7) Added Scoped Project and Task Repository Services
+8) Declaring 'app' var from built app
+9) There are some default Startup processes. Mine are UseCors(To use CORS Service we defined above) and MigrateDatabase(To performing Data Migrations to Db)
 
