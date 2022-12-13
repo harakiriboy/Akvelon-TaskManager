@@ -14,8 +14,9 @@ Run this command on terminal inside project's directory:
 For this you need Docker installed on your machine.
 To run docker container run this command inside project's directory:
 ```docker-compose up```<br>
-You can use app by going to the link<br>
-`http://localhost/api/Projects`
+You can use app by going to the link: `http://localhost/api/Projects`<br>
+To use sorting or filtering type: `http://localhost/api/Projects/getSortedProjects?orderBy=priority` or `http://localhost/api/Projects/getProjectsByName?projectName=someName`<br>
+And the same procedures for Tasks endpoint
 
 ## Installation
 ## Usage/commmands
