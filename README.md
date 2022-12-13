@@ -38,5 +38,13 @@ The DAL consists of Models(schemas for Entities), Database Context class to mana
 6) Added AutoMapper Service to allow Mappings between Entities and DTOs
 7) Added Scoped Project and Task Repository Services
 8) Declaring 'app' var from built app
-9) There are some default Startup processes. Mine are UseCors(To use CORS Service we defined above) and MigrateDatabase(To performing Data Migrations to Db)
+9) There are some default Startup processes. Mine are UseCors(To use CORS Service we defined above) and MigrateDatabase(To performing Data Migrations to Db)<br>
+
+## Stack 
+1) C# .Net
+2) EFCore ORM 
+3) SqlServer
+4) Docker
+
+## Additional Screenshots
 
