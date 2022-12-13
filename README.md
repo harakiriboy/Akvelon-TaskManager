@@ -47,4 +47,8 @@ The DAL consists of Models(schemas for Entities), Database Context class to mana
 4) Docker
 
 ## Additional Screenshots
+![pr1](https://user-images.githubusercontent.com/74262437/207388274-22c609aa-5804-4425-b343-91933944ea25.png)
+![ts1](https://user-images.githubusercontent.com/74262437/207388362-65d5ac34-ef41-4797-8ceb-e504a9bf683c.png)
+![prorder](https://user-images.githubusercontent.com/74262437/207388447-20e718f2-6755-40c1-8794-432b58675ffc.png)
+![prname](https://user-images.githubusercontent.com/74262437/207388547-4a3ec531-0b17-44f7-a669-4b84ced313a5.png)
 
