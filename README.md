@@ -21,6 +21,7 @@ To run docker container run this command inside project's directory:
 docker-compose up
 ```
 <br>
+### On something else
 You can use app by going to the link: `http://localhost/api/Projects`
 <br>
 To use sorting or filtering type: 
