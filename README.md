@@ -21,8 +21,20 @@ To run docker container run this command inside project's directory:
 docker-compose up
 ```
 <br>
-You can use app by going to the link: `http://localhost/api/Projects`<br>
-To use sorting or filtering type: `http://localhost/api/Projects/getSortedProjects?orderBy=priority` or `http://localhost/api/Projects/getProjectsByName?projectName=someName`<br>
+You can use app by going to the link: 
+```
+http://localhost/api/Projects
+```
+<br>
+To use sorting or filtering type: 
+```
+http://localhost/api/Projects/getSortedProjects?orderBy=priority
+``` 
+or 
+```
+http://localhost/api/Projects/getProjectsByName?projectName=someName
+```
+<br>
 And the same procedures for Tasks endpoint<br><br>
 You can sort Projects by priority, in the reverse order "priorityDesc", startDate, completionDate, by status/statusDesc.<br>
 For the Tasks, you can use status/statusDesc and priority/priorityDesc.
