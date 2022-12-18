@@ -17,7 +17,10 @@ You can use it with swagger
 ### On docker container
 For this you need Docker installed on your machine.
 To run docker container run this command inside project's directory:
-```docker-compose up```<br>
+```
+docker-compose up
+```
+<br>
 You can use app by going to the link: `http://localhost/api/Projects`<br>
 To use sorting or filtering type: `http://localhost/api/Projects/getSortedProjects?orderBy=priority` or `http://localhost/api/Projects/getProjectsByName?projectName=someName`<br>
 And the same procedures for Tasks endpoint<br><br>
