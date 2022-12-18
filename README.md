@@ -7,7 +7,10 @@ Firslty you need to clone this repository to your environment. And then you have
 ### On local machine
 For this you need sdk and runtime for dotnet6 to run it on your machine.
 Run this command on terminal inside project's directory:
-```dotnet run```<br>
+```
+dotnet run
+```
+<br>
 You can use it with swagger
 
 
