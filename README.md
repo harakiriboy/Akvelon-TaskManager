@@ -7,7 +7,9 @@ Firslty you need to clone this repository to your environment. And then you have
 ### On local machine
 For this you need sdk and runtime for dotnet6 to run it on your machine.
 Run this command on terminal inside project's directory:
-```dotnet run```
+```
+dotnet run
+```
 <br>
 You can use it with swagger
 
@@ -15,7 +17,9 @@ You can use it with swagger
 ### On docker container
 For this you need Docker installed on your machine.
 To run docker container run this command inside project's directory:
-```docker-compose up```
+```
+docker-compose up
+```
 <br>
 You can use app by going to the link: `http://localhost/api/Projects`
 <br>
@@ -24,8 +28,8 @@ To use sorting or filtering type:
 or `http://localhost/api/Projects/getProjectsByName?projectName=someName`
 <br>
 And the same procedures for Tasks endpoint<br><br>
-You can sort Projects by priority, in the reverse order "priorityDesc", startDate, completionDate, by status/statusDesc.<br>
-For the Tasks, you can use status/statusDesc and priority/priorityDesc.
+You can sort Projects by `priority`, in the reverse order `priorityDesc`, `startDate`, `completionDate`, by `status/statusDesc`.<br>
+For the Tasks, you can use `status/statusDesc` and `priority/priorityDesc`.
 
 ## Project structure
 ### Presentation layer
@@ -33,11 +37,11 @@ The Presentation Layer consists of two Controllers. For Projects and Tasks. Insi
 ### Business logic layer
 The Repository classes are core of my Business Logic Layer. They are injecting Context form DatabaseContext Service to get access to request data from Database. In the Logic Layer there are not another Service classes because this is simple CRUD application and it doesn't require any additional Services.
 ### Data access layer
-The DAL consists of Models(schemas for Entities), Database Context class to managing Entities and it has 'Initializer' method for seeding the Database.<br>
+The DAL consists of Models(schemas for Entities), Database Context class to managing Entities and it has `'Initializer'` method for seeding the Database.<br>
 
 ## 'Program.cs' class Pipeline
 1) The file starts from builder variable declaration to build application
-2) Then I created 'connectionString' var to store in there my 'DbConextConnectionString' to link with SqlServer
+2) Then I created `'connectionString'` var to store in there my `'DbConextConnectionString'` to link with SqlServer
 3) After adding Controller Service with options to use Converters(EnumToString and DateTimeToString)
 4) Adding Swagger services
 5) Adding CORS Service to establish connection with another Servers and data sharing
